@@ -1,0 +1,44 @@
+<h1>New Note</h1>
+
+<!--<%= render 'form', note: @note %>-->
+
+<!--<div id="output_div">-->
+<!--<%= form_for @note, url: {action: "create"} do |f| %>-->
+<!--  <%= f.text_field :content, label: 'Title', type: 'text', class: 'quill_container' %>-->
+<!--  <%= f.submit "Create", :class => 'create' %>-->
+<!--<% end %>-->
+<!--</div>-->
+
+<div id="editor">
+  <p>Hello World!</p>
+  <p><strong>Some </strong>initial <strong>bold text </strong></p>
+  <p><br></p>
+</div>
+
+<button type="button">Convert</button>
+
+<%= link_to 'Back', notes_path %>
+
+
+<script>
+  var quill = new Quill('#editor', {
+    theme: 'snow'
+  });
+  
+  
+  var contents = quill.getContents();
+  console.log('contents', contents);
+  var html = "contents = " + JSON.stringify(contents, null, 2);
+  
+  // var inputArray = quill.getContents()["ops"];
+  // for (var i = 0; i < inputArray; i < inputArray.length) {
+  //   console.log(i + 'quack' + inputArray[i]);
+  // }
+  
+  console.log(html);
+  
+//   console.log(JSON.stringify(quill.getContents(), null, 2));
+//   console.log(quill.getContents()["ops"][0]["insert"]);
+
+</script>
+
